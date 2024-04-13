@@ -20,11 +20,23 @@ app.get('/', (_, response) => {
 
 
 // GET /api/todos
-
+app.get('/api/todos', (req,res) => {
+	res.json(todos)
+})
 // POST /api/todos
-
+app.post('/api/todos', (req, res) => {
+    const { item } = req.body;
+    const newId = todos.length + 1; 
+    const newTodo = { id: newId, item, complete: false };
+    todos.push(newTodo);  
+});
 // PUT /api/todos/:id
-
+app.put('/api/todos/:id', (req, res) => {
+    const { id } = req.params;
+    const task = todos.find(todo => todo.id.toString() === id)
+    task.complete = !task.complete;
+    res.json({ id: task.id, complete: task.complete });
+});
 
 
 const message = `Server running: http://localhost:${port}`
