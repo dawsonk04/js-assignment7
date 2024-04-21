@@ -19,6 +19,7 @@ router.put('/:id', async (request, response) => {
 
     const collection = await getCollection('Todo-API', 'Todos');
 
+    // not sure why this is not working
     const todo = await collection.findOne({ _id: new ObjectId(id) })
     const complete = !todo.complete
     const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { complete } })
