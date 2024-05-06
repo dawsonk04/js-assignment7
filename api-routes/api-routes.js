@@ -23,7 +23,8 @@ router.put('/:id', async (request, response) => {
     const todo = await collection.findOne({ _id: new ObjectId(id) })
     const complete = !todo.complete
     const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { complete } })
-     
+    response.json({ id, complete });
+
 });
 
 
