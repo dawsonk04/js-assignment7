@@ -18,6 +18,7 @@ Content-Type: application/json
 
 ### Toggle completed status of a todo
 
+### Toggle Works to set it in here but when I try to do it from the checkbox it dont work
 PUT http://localhost:{{port}}/api/todos/6621426738833aa8b21e8fd4
 
 
